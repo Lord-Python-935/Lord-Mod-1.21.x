@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "lordmod",
+	"version": "${version}",
+	"name": "Lord Mod",
+	"description": "I created the mod while learning modding",
+	"authors": [
+		"Lord Python"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/lordmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.jakob.lordmod.LordMod"
+		],
+		"fabric-datagen": [
+			"net.jakob.lordmod.LordModDataGenerator"
+		],
+		"client": [
+			"net.jakob.lordmod.LordModClient"
+		]
+	},
+	"mixins": [
+		"lordmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
