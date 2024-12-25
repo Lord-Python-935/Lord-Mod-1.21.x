@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lordmod:item/raw_pink_garnet"
+  }
+}

@@ -2,6 +2,8 @@ package net.jakob.lordmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.jakob.lordmod.block.ModBlocks;
+import net.jakob.lordmod.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +38,6 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 public class LordMod implements ModInitializer {
 	public static final String MOD_ID = "lordmod";
-
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	private static final HashMap<Integer, ItemStack> memo = new HashMap<>();
@@ -45,11 +46,11 @@ public class LordMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			ServerPlayerEntity player = handler.getPlayer();
-
 			applyNightVision(player); // Nachtsicht immer da
 		});
 
@@ -101,37 +102,8 @@ public class LordMod implements ModInitializer {
 					})
 			);
 		});
-
-		// ServerTickEvents.END_WORLD_TICK.register(TestMod::onTick);
 	}
 
-	// Wird am Ende jedes Welten-Ticks aufgerufen
-	private static void onTick(ServerWorld world) {
-		for (ServerPlayerEntity player : world.getPlayers()) {
-			repair(player);
-		}
-	}
-
-	private static void repair(ServerPlayerEntity player) {
-
-		for (ItemStack armorPiece : player.getInventory().armor) {
-			if (!armorPiece.isEmpty() && armorPiece.getItem() != null) {
-				repairArmor(armorPiece);
-			}
-		}
-	}
-
-	private static void repairArmor(ItemStack armorPiece) {
-		int repairAmount = 1; //repair speed per tick
-
-		if (armorPiece.isDamaged()) {
-			armorPiece.setDamage(armorPiece.getDamage() - repairAmount);
-
-			if (armorPiece.getDamage() < 0) {
-				armorPiece.setDamage(0);
-			}
-		}
-	}
 
 	private void onServerStart(MinecraftServer server) {
 		System.out.println("Server start registered");
@@ -142,13 +114,13 @@ public class LordMod implements ModInitializer {
 		System.out.println("Try to apply night vision");
 
 		if (!player.hasStatusEffect(StatusEffects.NIGHT_VISION)) {
-			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, true, false));
+			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false,  false));
 		}
 	}
 
 	private void applyStatusEffects(ServerPlayerEntity player) {
-		// resistance neutralizes all damage
-		player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, Integer.MAX_VALUE, 0, false, true, true));
+		// resistance neutralizes low damage
+		player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, Integer.MAX_VALUE, 9, false, true, true));
 
 		// so some of these are just visuals
 		player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, Integer.MAX_VALUE, 9, false, true, true));
