@@ -2,5 +2,14 @@
   "item.lordmod.pink_garnet": "Pink Garnet",
   "item.lordmod.raw_pink_garnet": "Raw Pink Garnet",
 
-  "block.lordmod.pink_garnet_block": "Block of Pink Garnet"
+  "item.lordmod.chisel": "Chisel",
+
+  "block.lordmod.pink_garnet_block": "Block of Pink Garnet",
+  "block.lordmod.raw_pink_garnet_block": "Block of Raw Pink Garnet",
+
+  "block.lordmod.pink_garnet_ore": "Pink Garnet Ore",
+  "block.lordmod.pink_garnet_deepslate_ore": "Pink Garnet Deepslate Ore",
+
+  "itemgroup.lordmod.pink_garnet_items": "Pink Garnet Items",
+  "itemgroup.lordmod.pink_garnet_blocks": "Pink Garnet Blocks"
 }

@@ -3,6 +3,7 @@ package net.jakob.lordmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.jakob.lordmod.block.ModBlocks;
+import net.jakob.lordmod.item.ModItemGroups;
 import net.jakob.lordmod.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,8 +47,10 @@ public class LordMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
 
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			ServerPlayerEntity player = handler.getPlayer();
