@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "pink_garnet",
+  "ingredient": {
+    "item": "lordmod:raw_uranium"
+  },
+  "result": {
+    "id": "lordmod:uranium_ingot"
+  }
+}

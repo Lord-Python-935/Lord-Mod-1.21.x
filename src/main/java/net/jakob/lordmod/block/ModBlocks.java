@@ -2,6 +2,8 @@ package net.jakob.lordmod.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jakob.lordmod.LordMod;
+import net.jakob.lordmod.block.custom.MagicBlock;
+import net.jakob.lordmod.block.custom.UraniumBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.ExperienceDroppingBlock;
@@ -30,6 +32,17 @@ public class ModBlocks {
     public static final Block PINK_GARNET_DEEPSLATE_ORE = registerBlock("pink_garnet_deepslate_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
                     AbstractBlock.Settings.create().strength(6f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block",
+            new MagicBlock(AbstractBlock.Settings.create().strength(1f).requiresTool()));
+
+    public static final Block URANIUM_ORE = registerBlock("uranium_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(1, 100000),
+                    AbstractBlock.Settings.create().strength(10f).requiresTool().sounds(BlockSoundGroup.SCULK_SHRIEKER)));
+
+    public static final Block URANIUM_BLOCK = registerBlock("uranium_block",
+            new UraniumBlock(AbstractBlock.Settings.create().strength(8f).requiresTool()));
+
 
 
     private static Block registerBlock(String name, Block block){

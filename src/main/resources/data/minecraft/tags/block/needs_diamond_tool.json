@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "lordmod:pink_garnet_deepslate_ore"
+    "lordmod:pink_garnet_deepslate_ore",
+    "lordmod:uranium_ore"
   ]
 }

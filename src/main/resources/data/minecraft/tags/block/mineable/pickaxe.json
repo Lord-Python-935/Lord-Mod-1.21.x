@@ -4,6 +4,9 @@
     "lordmod:pink_garnet_block",
     "lordmod:raw_pink_garnet_block",
     "lordmod:pink_garnet_ore",
-    "lordmod:pink_garnet_deepslate_ore"
+    "lordmod:pink_garnet_deepslate_ore",
+    "lordmod:uranium_ore",
+    "lordmod:magic_block",
+    "lordmod:uranium_block"
   ]
 }
